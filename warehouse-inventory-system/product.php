@@ -55,6 +55,9 @@
                 <td class="text-center"> <?php echo read_date($product['date']); ?></td>
                 <td class="text-center">
                   <div class="btn-group">
+                    <a class="btn btn-primary btn-xs"  title="Details" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
+                      <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
                     <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs"  title="Edit" data-toggle="tooltip">
                       <span class="glyphicon glyphicon-edit"></span>
                     </a>
@@ -62,6 +65,22 @@
                       <span class="glyphicon glyphicon-trash"></span>
                     </a>
                   </div>
+                </td>
+                
+                
+              </tr>
+              
+              <tr>
+                <td colspan="2">
+                    <div class="row">
+                      <div class="col">
+                        <div class="collapse multi-collapse" id="multiCollapseExample1">
+                          <div class="card card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </td>
               </tr>
              <?php endforeach; ?>
