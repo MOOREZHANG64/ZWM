@@ -51,6 +51,7 @@ class Session {
       $this->msg;
     }
   }
+
 }
 
 $session = new Session();

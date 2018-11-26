@@ -211,7 +211,7 @@ function tableExists($table){
   function join_product_table(){
      global $db;
      $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
-    $sql  .=" AS categorie,m.file_name AS image";
+    $sql  .=" AS categorie,m.file_name AS image,p.update_date,p.update_by";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
     $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
@@ -349,6 +349,18 @@ function  monthlySales($year){
   $sql .= " GROUP BY DATE_FORMAT( s.date,  '%c' ),s.product_id";
   $sql .= " ORDER BY date_format(s.date, '%c' ) ASC";
   return find_by_sql($sql);
+}
+/*--------------------------------------------------------------*/
+/* Created by Moore, 26/11/2018
+/* Retrieve user name by user id
+/*--------------------------------------------------------------*/
+function get_user_name($id)
+{
+    global $db;
+    $sql  = "SELECT u.name "; 
+    $sql .= " FROM users u";
+    $sql .= " WHERE u.id = '{$id}'";
+    return $db->query($sql);
 }
 
 ?>

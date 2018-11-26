@@ -16,6 +16,7 @@
      $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
 //     $p_buy   = remove_junk($db->escape($_POST['buying-price']));
 //     $p_sale  = remove_junk($db->escape($_POST['saleing-price']));
+     $current_user = current_user();
      if (is_null($_POST['product-photo']) || $_POST['product-photo'] === "") {
        $media_id = '0';
      } else {
@@ -23,9 +24,9 @@
      }
      $date    = make_date();
      $query  = "INSERT INTO products (";
-     $query .=" name,quantity,categorie_id,media_id,date";
+     $query .=" name,quantity,categorie_id,media_id,date,update_date,update_by";
      $query .=") VALUES (";
-     $query .=" '{$p_name}', '{$p_qty}', '{$p_cat}', '{$media_id}', '{$date}'";
+     $query .=" '{$p_name}', '{$p_qty}', '{$p_cat}', '{$media_id}', '{$date}', '{$date}', '{$current_user[id]}'";
      $query .=")";
      $query .=" ON DUPLICATE KEY UPDATE name='{$p_name}'";
      if($db->query($query)){
