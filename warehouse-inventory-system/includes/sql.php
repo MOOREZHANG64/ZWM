@@ -211,10 +211,11 @@ function tableExists($table){
   function join_product_table(){
      global $db;
      $sql  =" SELECT p.id,p.name,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
-    $sql  .=" AS categorie,m.file_name AS image,p.update_date,p.update_by";
+    $sql  .=" AS categorie,m.file_name AS image,p.update_date,u.name AS update_by";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.categorie_id";
     $sql  .=" LEFT JOIN media m ON m.id = p.media_id";
+    $sql  .=" LEFT JOIN users u ON u.id = p.update_by";
     $sql  .=" ORDER BY p.id ASC";
     return find_by_sql($sql);
 
@@ -354,13 +355,13 @@ function  monthlySales($year){
 /* Created by Moore, 26/11/2018
 /* Retrieve user name by user id
 /*--------------------------------------------------------------*/
-function get_user_name($id)
-{
-    global $db;
-    $sql  = "SELECT u.name "; 
-    $sql .= " FROM users u";
-    $sql .= " WHERE u.id = '{$id}'";
-    return $db->query($sql);
-}
+//function get_user_name($id){
+//    global $db;
+//    $sql  = "SELECT u.name, u.username"; 
+//    $sql .= " FROM users u";
+//    $sql .= " WHERE u.id = '{$id}'";
+//    $result = $db->query($sql);
+//    return $result['name'];
+//}
 
 ?>
