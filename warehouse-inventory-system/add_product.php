@@ -129,6 +129,7 @@
                </div>
               </div>
               <button type="submit" name="add_product" class="btn btn-danger">Add product</button>
+              <a href="product.php" class="btn btn-info pull-right" role="button">All products</a>
           </form>
          </div>
         </div>

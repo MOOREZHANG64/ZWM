@@ -142,6 +142,7 @@ if(!$product){
                </div>
               </div>
               <button type="submit" name="product" class="btn btn-danger">Update</button>
+              <a href="product.php" class="btn btn-info pull-right" role="button">Cancel</a>
           </form>
          </div>
         </div>

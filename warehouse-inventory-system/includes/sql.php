@@ -364,4 +364,28 @@ function  monthlySales($year){
 //    return $result['name'];
 //}
 
+/*--------------------------------------------------------------*/
+/*  Created by Moore, 28/11/2018
+/*  Select product by id
+/*--------------------------------------------------------------*/
+function find_product_by_id($id)
+{
+  global $db;
+  $id = (int)$id;
+  $sql = $db->query("SELECT p.id, p.name, p.quantity, p.categorie_id, m.file_name AS media FROM products p LEFT JOIN media m ON m.id = p.media_id WHERE p.id='{$db->escape($id)}' LIMIT 1");
+    if($result = $db->fetch_assoc($sql))
+        return $result;
+    else
+        return null;
+}
+
+/*--------------------------------------------------------------*/
+/*  Created by Moore, 28/11/2018
+/*  Select product inventory details by product id
+/*--------------------------------------------------------------*/
+function find_inventories_by_product_id($id)
+{
+    
+}
+
 ?>
