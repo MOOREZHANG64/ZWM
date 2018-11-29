@@ -30,6 +30,13 @@ body{
   left: 0;
   padding: 35px 15px 20px 270px;
 }
+box-page{
+  position: relative;
+  display: block;
+  top: 50px;
+  left: 0;
+  padding: 35px 15px 20px 270px;
+}
 
 .bg-green{
   background-color: #A3C86D;

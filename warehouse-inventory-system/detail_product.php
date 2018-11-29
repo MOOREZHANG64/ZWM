@@ -18,6 +18,11 @@ if(!$inventories){
   redirect('detail_product.php');
 }
 ?>
+
+<?php 
+    
+?>
+
 <?php
  if(isset($_POST['product'])){
     $req_fields = array('product-title','product-categorie','product-quantity' );
@@ -162,9 +167,37 @@ if(!$inventories){
                    <span class="glyphicon glyphicon-th-list"></span>
                    <span> Inventory lists </span>
                </strong>
+               <span class='btn-toolbar'>
+                   <a href="#" class="btn btn-primary pull-right" onClick="MyWindow=window.open('stock_in.php?id=<?php echo (int)$_GET['id'];?>', 'MyWindow', 'location=1, status=1, scrollbars=1, width=800, height=455'); return false;"> Stock In / Out </a>
+               </span>
            </div>
            <div class="panel-body">
-               
+               <table class="table table-bordered">
+                   <thead>
+                       <tr>
+                           <th class="text-center" style="width: 50px;"> # </th>
+                           <th> Product Title </th>
+                           <th> Inventory Type </th>
+                           <th> Quantity </th>
+                           <th> Remarks </th>
+                           <th> Created On </th>
+                           <th> Created By </th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <?php foreach ($inventories as $inventory):?>
+                       <tr>
+                           <td class="text-center"><?php echo count_id();?></td>
+                           <td><?php echo remove_junk($inventory['productname']); ?></td>
+                           <td><?php echo remove_junk($inventory['inventory_type']); ?></td>
+                           <td><?php echo remove_junk($inventory['qty']); ?></td>
+                           <td><?php echo remove_junk($inventory['remarks']); ?></td>
+                           <td><?php echo read_date($inventory['created_on']); ?></td>
+                           <td><?php echo remove_junk($inventory['username']); ?></td>
+                       </tr>
+                       <?php endforeach; ?>
+                   </tbody>
+               </table>
            </div>
        </div>
    </div>

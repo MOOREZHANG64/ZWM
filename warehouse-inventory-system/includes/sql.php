@@ -385,7 +385,16 @@ function find_product_by_id($id)
 /*--------------------------------------------------------------*/
 function find_inventories_by_product_id($id)
 {
-    
+    global $db;
+    $id = (int)$id;
+    $sql  = "SELECT i.id, i.qty, i.remarks, i.created_on, p.name AS productname, u.name AS username,";
+    $sql .= " CASE i.inventory_type WHEN 0 THEN 'Stock out' WHEN 1 THEN 'Stock in' ELSE 'No stock record' END AS inventory_type";
+    $sql .= " FROM inventories i";
+    $sql .= " LEFT JOIN products p ON i.product_id = p.id";
+    $sql .= " LEFT JOIN users u ON i.created_by = u.id";
+    $sql .= " WHERE i.product_id = '{$db->escape($id)}'";
+    $sql .= " ORDER BY i.created_on ASC";
+    return find_by_sql($sql);
 }
 
 ?>
