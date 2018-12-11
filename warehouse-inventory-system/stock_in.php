@@ -21,15 +21,19 @@
      $created_on    = make_date();
      $productid     = (int) $_GET['pdt_id'];
 
+     //update product amount
+     $query1  = "UPDATE products SET";
+     $query1 .= " quantity = quantity + '{$qty}'";
+     $query1 .= " WHERE id = '{$productid}'";
+    
+     //insert inventory
      $query  = "INSERT INTO inventories (";
      $query .= " product_id, inventory_type, created_by, created_on, qty, remarks";
      $query .= ") VALUES (";
      $query .=" '{$productid}', '{$inventory_type}', '{$created_by[id]}', '{$created_on}', '{$qty}', '{$remarks}'";
      $query .= ")";
-
-
  
-     if($db->query($query)){
+     if($db->query($query) && $db->query($query1)){
        $session->msg('s',"Inventory created!");
        echo "<script>window.history.go(-2);</script>";
      } else {
