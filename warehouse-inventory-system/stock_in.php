@@ -34,6 +34,7 @@
        echo "<script>window.history.go(-2);</script>";
      } else {
        $session->msg('d','Sorry failed to create!');
+        echo "<script>window.history.go(-2);</script>";
      }
        console.log("no error2");
    } else{

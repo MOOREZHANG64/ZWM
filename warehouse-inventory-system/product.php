@@ -27,15 +27,15 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th class="text-center" style="width: 50px;">#</th>
+                <th class="text-center" style="width: 30px;">#</th>
                 <th> Photo</th>
                 <th> Product Title </th>
                 <th class="text-center" style="width: 10%;"> Categorie </th>
-                <th class="text-center" style="width: 10%;"> Instock </th>
+                <th class="text-center" style="width: 5%;"> Instock </th>
                 <th class="text-center" style="width: 10%;"> Product Added </th>
                 <th class="text-center" style="width: 10%;"> Last Update</th>
                 <th class="text-center" style="width: 10%;"> Last Update By</th>
-                <th class="text-center" style="width: 100px;"> Actions </th>
+                <th class="text-center" style="width: 130px;"> Actions </th>
               </tr>
             </thead>
             <tbody>
@@ -57,10 +57,16 @@
                 <td class="text-center"> <?php echo remove_junk($product['update_by']); ?></td>
                 <td class="text-center">
                   <div class="btn-group">
+                    <a href="stock_in.php?pdt_id=<?php echo (int)$product['id'];?>" class="btn btn-success btn-xs" title="Stock in/out" data-toggle="tooltip">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                    </a>
+                  </div>
+                  <div class="btn-group">
                     <a href="detail_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-primary btn-xs"  title="Inventory Details" data-toggle="tooltip">
                       <span class="glyphicon glyphicon-asterisk"></span>
                     </a>
-                    
+                  </div>
+                  <div class="btn-group">
                     <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs"  title="Edit" data-toggle="tooltip">
                       <span class="glyphicon glyphicon-edit"></span>
                     </a>
