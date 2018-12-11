@@ -19,7 +19,7 @@
             <span>All Products</span>
           </strong>
           <span class="pull-right">
-              <a href="add_product.php" class="btn btn-primary">Add New</a>
+              <a href="add_product.php" class="btn btn-primary">New Product</a>
           </span>
          </div>
         </div>

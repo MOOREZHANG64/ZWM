@@ -393,7 +393,7 @@ function find_inventories_by_product_id($id)
     $sql .= " LEFT JOIN products p ON i.product_id = p.id";
     $sql .= " LEFT JOIN users u ON i.created_by = u.id";
     $sql .= " WHERE i.product_id = '{$db->escape($id)}'";
-    $sql .= " ORDER BY i.created_on ASC";
+    $sql .= " ORDER BY i.created_on DESC";
     return find_by_sql($sql);
 }
 
